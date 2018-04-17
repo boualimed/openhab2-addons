@@ -5,28 +5,32 @@
 	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
 
 	<!-- Sample Thing Type -->
-	<thing-type id="sample">
-		<label>jSupla Binding Thing</label>
-		<description>Sample thing for jSupla Binding</description>
-
-		<channels>
-			<channel id="channel1" typeId="sample-channel" />
-		</channels>
-
+	<thing-type id="supla-device">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="jsupla-server-bridge"/>
+		</supported-bridge-type-refs>
+		<label>Supla Device</label>
+		<description>Generic type for all Supla devices. Channels will be provided by device at runtime</description>
+		<!-- Note: Channels will be discovered at runtime -->
 		<config-description>
-			<parameter name="config1" type="text" required="true">
-				<label>Sample parameter</label>
-				<description>This is a sample text configuration parameter.</description>
+			<parameter name="jsupla-device-id" type="integer" required="true">
+				<label>ID</label>
+				<description>This is ID of device. It can be found on website during device configuration.</description>
 			</parameter>
 		</config-description>
-
 	</thing-type>
 
-	<!-- Sample Channel Type -->
-	<channel-type id="sample-channel">
-		<item-type>jsuplaItem</item-type>
-		<label>jSupla Binding Channel</label>
-		<description>Sample channel for jSupla Binding</description>
+	<channel-type id="light-channel">
+		<item-type>Switch</item-type>
+		<label>Light switch</label>
+		<description>Allows you to turn light ON/OFF</description>
+		<category>Light</category>
 	</channel-type>
 
+	<channel-type id="switch-channel">
+		<item-type>Switch</item-type>
+		<label>ON/OFF switch</label>
+		<description>Allows you to turn thing ON/OFF</description>
+		<category>Switch</category>
+	</channel-type>
 </thing:thing-descriptions>
