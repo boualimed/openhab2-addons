@@ -4,7 +4,10 @@
 	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/binding/v1.0.0 http://eclipse.org/smarthome/schemas/binding-1.0.0.xsd">
 
 	<name>jSupla Binding</name>
-	<description>This is the binding for jSupla.</description>
+	<description>This binding is able to create native server for Supla devices.
+		For more information visit https://github.com/magx2/jSupla
+		To get familiar with Supla system visit https://www.supla.org
+	</description>
 	<author>Martin Grzeslowski</author>
 
 </binding:binding>
