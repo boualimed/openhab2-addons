@@ -13,11 +13,11 @@
 package org.openhab.binding.jsupla.internal;
 
 /**
- * The {@link jSuplaConfiguration} class contains fields mapping thing configuration parameters.
+ * The {@link JSuplaConfiguration} class contains fields mapping thing configuration parameters.
  *
  * @author Grzeslowski - Initial contribution
  */
-public class jSuplaConfiguration {
+public class JSuplaConfiguration {
 
     /**
      * Sample configuration parameter. Replace with your own.

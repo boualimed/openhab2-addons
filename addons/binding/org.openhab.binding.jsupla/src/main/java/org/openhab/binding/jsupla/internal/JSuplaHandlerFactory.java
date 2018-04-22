@@ -12,32 +12,28 @@
  */
 package org.openhab.binding.jsupla.internal;
 
-import static org.openhab.binding.jsupla.jSuplaBindingConstants.*;
-
-import java.util.Collections;
-import java.util.Set;
-
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
-import org.openhab.binding.jsupla.handler.jSuplaHandler;
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandlerFactory;
 import org.eclipse.smarthome.core.thing.binding.ThingHandler;
 import org.eclipse.smarthome.core.thing.binding.ThingHandlerFactory;
+import org.openhab.binding.jsupla.handler.SuplaDeviceHandler;
 import org.osgi.service.component.annotations.Component;
 
+import static org.openhab.binding.jsupla.jSuplaBindingConstants.SUPLA_DEVICE_TYPE;
+import static org.openhab.binding.jsupla.jSuplaBindingConstants.SUPPORTED_THING_TYPES_UIDS;
+
 /**
- * The {@link jSuplaHandlerFactory} is responsible for creating things and thing
+ * The {@link JSuplaHandlerFactory} is responsible for creating things and thing
  * handlers.
  *
  * @author Grzeslowski - Initial contribution
  */
 @Component(service = ThingHandlerFactory.class, immediate = true, configurationPid = "binding.jsupla")
 @NonNullByDefault
-public class jSuplaHandlerFactory extends BaseThingHandlerFactory {
-
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Collections.singleton(THING_TYPE_SAMPLE);
+public class JSuplaHandlerFactory extends BaseThingHandlerFactory {
 
     @Override
     public boolean supportsThingType(ThingTypeUID thingTypeUID) {
@@ -48,8 +44,8 @@ public class jSuplaHandlerFactory extends BaseThingHandlerFactory {
     protected @Nullable ThingHandler createHandler(Thing thing) {
         ThingTypeUID thingTypeUID = thing.getThingTypeUID();
 
-        if (THING_TYPE_SAMPLE.equals(thingTypeUID)) {
-            return new jSuplaHandler(thing);
+        if (SUPLA_DEVICE_TYPE.equals(thingTypeUID)) {
+            return new SuplaDeviceHandler(thing);
         }
 
         return null;

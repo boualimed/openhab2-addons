@@ -12,52 +12,42 @@
  */
 package org.openhab.binding.jsupla.handler;
 
-import static org.openhab.binding.jsupla.jSuplaBindingConstants.*;
-
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
-import org.openhab.binding.jsupla.internal.jSuplaConfiguration;
 import org.eclipse.smarthome.core.thing.ChannelUID;
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingStatus;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandler;
 import org.eclipse.smarthome.core.types.Command;
+import org.openhab.binding.jsupla.internal.JSuplaConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The {@link jSuplaHandler} is responsible for handling commands, which are
+ * The {@link SuplaDeviceHandler} is responsible for handling commands, which are
  * sent to one of the channels.
  *
  * @author Grzeslowski - Initial contribution
  */
 @NonNullByDefault
-public class jSuplaHandler extends BaseThingHandler {
-
-    private final Logger logger = LoggerFactory.getLogger(jSuplaHandler.class);
+public class SuplaDeviceHandler extends BaseThingHandler {
+    private final Logger logger = LoggerFactory.getLogger(SuplaDeviceHandler.class);
 
     @Nullable
-    private jSuplaConfiguration config;
+    private JSuplaConfiguration config;
 
-    public jSuplaHandler(Thing thing) {
+    public SuplaDeviceHandler(Thing thing) {
         super(thing);
     }
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
-        if (channelUID.getId().equals(CHANNEL_1)) {
-            // TODO: handle command
-
-            // Note: if communication with thing fails for some reason,
-            // indicate that by setting the status with detail information
-            // updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
-            // "Could not control device at IP address x.x.x.x");
-        }
+        throw new UnsupportedOperationException("jSuplaHandler.handleCommand(channelUID, command)"); // TODO
     }
 
     @Override
     public void initialize() {
-        config = getConfigAs(jSuplaConfiguration.class);
+        config = getConfigAs(JSuplaConfiguration.class);
 
         // TODO: Initialize the thing. If done set status to ONLINE to indicate proper working.
         // Long running initialization should be done asynchronously in background.

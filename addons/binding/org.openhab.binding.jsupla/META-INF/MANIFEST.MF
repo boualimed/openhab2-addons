@@ -22,5 +22,6 @@ Import-Package:
  org.eclipse.smarthome.core.thing.type,
  org.eclipse.smarthome.core.types,
  org.eclipse.smarthome.core.util,
- org.slf4j
+ org.slf4j,
+ com.google.common.collect
 Service-Component: OSGI-INF/*.xml
